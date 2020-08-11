@@ -1,0 +1,41 @@
+<%= button_to 'Scrape', scrape_athletes_path %>
+
+<p id="notice"><%= notice %></p>
+
+<h1>Athletes</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Team</th>
+      <th>Belt</th>
+      <th>Weight</th>
+      <th>Place</th>
+      <th>Gender</th>
+      <th>Age</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @athletes.each do |athlete| %>
+      <tr>
+        <td><%= athlete.name %></td>
+        <td><%= athlete.team %></td>
+        <td><%= athlete.belt %></td>
+        <td><%= athlete.weight %></td>
+        <td><%= athlete.place %></td>
+        <td><%= athlete.gender %></td>
+        <td><%= athlete.age %></td>
+        <td><%= link_to 'Show', athlete %></td>
+        <td><%= link_to 'Edit', edit_athlete_path(athlete) %></td>
+        <td><%= link_to 'Destroy', athlete, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Athlete', new_athlete_path %>

@@ -1,0 +1,52 @@
+<%= form_with(model: athlete, local: true) do |form| %>
+  <% if athlete.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(athlete.errors.count, "error") %> prohibited this athlete from being saved:</h2>
+
+      <ul>
+        <% athlete.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :team %>
+    <%= form.text_field :team %>
+  </div>
+
+  <div class="field">
+    <%= form.label :belt %>
+    <%= form.text_field :belt %>
+  </div>
+
+  <div class="field">
+    <%= form.label :weight %>
+    <%= form.number_field :weight %>
+  </div>
+
+  <div class="field">
+    <%= form.label :place %>
+    <%= form.number_field :place %>
+  </div>
+
+  <div class="field">
+    <%= form.label :gender %>
+    <%= form.text_field :gender %>
+  </div>
+
+  <div class="field">
+    <%= form.label :age %>
+    <%= form.number_field :age %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
